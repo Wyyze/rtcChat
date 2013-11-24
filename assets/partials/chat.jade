@@ -14,7 +14,7 @@
             | Not available
           button.btn.btn-danger.btn-xs(type="button", ng-switch-when="calling", style="float: right;", ng-disabled="1")
             span.glyphicon.glyphicon-minus-sign(style="margin-right: 5px;")
-            | On call
+            | Calling
           button.btn.btn-success.btn-xs(type="button", ng-switch-when="ready", ng-click="callUser(connectedUser.id)", style="float: right;", ng-disabled="user.status != 'ready' || calling")
             span.glyphicon.glyphicon-facetime-video(style="margin-right: 5px;")
             | Call
