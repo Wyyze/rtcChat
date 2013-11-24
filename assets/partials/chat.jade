@@ -1,0 +1,26 @@
+.page-header
+  video.localStream(width="100", autoplay, muted="1")
+  h1 Welcome <small>{{user.login}} ({{user.id}})</small>
+  .clearfix
+  #video-container
+.row
+  .col-md-3
+    .panel.panel-default
+      .panel-heading Users:
+      lu.list-group
+        li.list-group-item(ng-repeat="connectedUser in users", ng-switch="connectedUser.status") {{connectedUser.login}} ({{connectedUser.id}})
+          button.btn.btn-warning.btn-xs(type="button", ng-switch-when="connected", style="float: right;", ng-disabled="1")
+            span.glyphicon.glyphicon-remove-sign(style="margin-right: 5px;")
+            | Not available
+          button.btn.btn-danger.btn-xs(type="button", ng-switch-when="calling", style="float: right;", ng-disabled="1")
+            span.glyphicon.glyphicon-minus-sign(style="margin-right: 5px;")
+            | On call
+          button.btn.btn-success.btn-xs(type="button", ng-switch-when="ready", ng-click="callUser(connectedUser.id)", style="float: right;", ng-disabled="user.status != 'ready' || calling")
+            span.glyphicon.glyphicon-facetime-video(style="margin-right: 5px;")
+            | Call
+        li.list-group-item(ng-if="!userCount") No user connected
+  .col-md-9
+    .alert.alert-warning(ng-if="user.status != 'ready'")
+      strong Please Allow camera in order to make calls.
+      |  (look at the top right)
+    video.remoteStream(autoplay)

@@ -1,0 +1,22 @@
+doctype 5
+html(class="ng-app")
+  head
+    meta(charset="utf-8")
+    title WYYZE
+    link(rel='stylesheet', href='/stylesheets/vendor/bootstrap/bootstrap.css' + cachebust)
+    link(rel='stylesheet', href='/stylesheets/style.css' + cachebust)
+
+    if reload
+      script(src='/socket.io/socket.io.js')
+      script(src='/javascripts/reload-client.js')
+
+    if optimize
+      script(src='/javascripts/libs/socket.io.min.js')
+      script(src='/javascripts/main-built.js')
+    else
+      script(src='/javascripts/vendor/requirejs/require.js', data-main='/javascripts/main.js')
+
+  body
+    block content
+
+    

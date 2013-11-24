@@ -1,0 +1,21 @@
+{
+  "name": "chat",
+  "version": "0.0.1",
+  "homepage": "wyyze.com",
+  "author": "Charles NIAULIN",
+  "description": "",
+  "contributors": [{
+    "name": "",
+    "email": ""
+  }],
+  "private": true,
+  "dependencies": {
+    "express": "*",
+    "consolidate": "*",
+    "jade": "*",
+    "async": "*",
+    "underscore": "*",
+    "socket.io": "*",
+    "underscore": "*"
+  }
+}
